@@ -1,0 +1,62 @@
+# Capturas de referência do Figma: uso local, nunca versionar
+Telas-exemplo/
+
+# Dependências
+node_modules/
+.pnpm-store/
+
+# Build
+dist/
+dist-ssr/
+*.tsbuildinfo
+.vite/
+
+# Variáveis de ambiente (versionar só o exemplo)
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Cache de ferramentas
+.cache/
+.tanstack/
+.eslintcache
+.stylelintcache
+coverage/
+
+# Playwright (baselines de snapshots ficam versionadas)
+playwright-report/
+test-results/
+blob-report/
+playwright/.cache/
+playwright/.auth/
+
+# Lighthouse CI (os relatórios finais ficam em lighthouse/reports)
+.lighthouseci/
+
+# Deploy
+.vercel/
+.netlify/
+
+# Ferramentas de IA usadas só no desenvolvimento local (não fazem parte do projeto)
+.claude/
+.agents/
+skills-lock.json
+CLAUDE.md
+
+# Editor e sistema operacional
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini

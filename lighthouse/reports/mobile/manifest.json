@@ -1,0 +1,74 @@
+[
+  {
+    "url": "http://localhost:4174/",
+    "isRepresentativeRun": false,
+    "htmlPath": "C:\\Users\\pedro\\Projects\\frontend-challenge\\lighthouse\\reports\\mobile\\localhost--2026_10_28_23_25_06.report.html",
+    "jsonPath": "C:\\Users\\pedro\\Projects\\frontend-challenge\\lighthouse\\reports\\mobile\\localhost--2026_10_28_23_25_06.report.json",
+    "summary": {
+      "performance": 0.79,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:4174/",
+    "isRepresentativeRun": false,
+    "htmlPath": "C:\\Users\\pedro\\Projects\\frontend-challenge\\lighthouse\\reports\\mobile\\localhost--2026_10_28_23_25_21.report.html",
+    "jsonPath": "C:\\Users\\pedro\\Projects\\frontend-challenge\\lighthouse\\reports\\mobile\\localhost--2026_10_28_23_25_21.report.json",
+    "summary": {
+      "performance": 0.8,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:4174/nft/emerald-ape-042",
+    "isRepresentativeRun": false,
+    "htmlPath": "C:\\Users\\pedro\\Projects\\frontend-challenge\\lighthouse\\reports\\mobile\\localhost-nft_emerald_ape_042-2026_10_28_23_25_49.report.html",
+    "jsonPath": "C:\\Users\\pedro\\Projects\\frontend-challenge\\lighthouse\\reports\\mobile\\localhost-nft_emerald_ape_042-2026_10_28_23_25_49.report.json",
+    "summary": {
+      "performance": 0.8,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:4174/nft/emerald-ape-042",
+    "isRepresentativeRun": false,
+    "htmlPath": "C:\\Users\\pedro\\Projects\\frontend-challenge\\lighthouse\\reports\\mobile\\localhost-nft_emerald_ape_042-2026_10_28_23_26_16.report.html",
+    "jsonPath": "C:\\Users\\pedro\\Projects\\frontend-challenge\\lighthouse\\reports\\mobile\\localhost-nft_emerald_ape_042-2026_10_28_23_26_16.report.json",
+    "summary": {
+      "performance": 0.8,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:4174/",
+    "isRepresentativeRun": true,
+    "htmlPath": "C:\\Users\\pedro\\Projects\\frontend-challenge\\lighthouse\\reports\\mobile\\localhost--2026_10_28_23_25_35.report.html",
+    "jsonPath": "C:\\Users\\pedro\\Projects\\frontend-challenge\\lighthouse\\reports\\mobile\\localhost--2026_10_28_23_25_35.report.json",
+    "summary": {
+      "performance": 0.79,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:4174/nft/emerald-ape-042",
+    "isRepresentativeRun": true,
+    "htmlPath": "C:\\Users\\pedro\\Projects\\frontend-challenge\\lighthouse\\reports\\mobile\\localhost-nft_emerald_ape_042-2026_10_28_23_26_02.report.html",
+    "jsonPath": "C:\\Users\\pedro\\Projects\\frontend-challenge\\lighthouse\\reports\\mobile\\localhost-nft_emerald_ape_042-2026_10_28_23_26_02.report.json",
+    "summary": {
+      "performance": 0.8,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  }
+]

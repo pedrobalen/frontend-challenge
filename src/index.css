@@ -1,0 +1,153 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+@import '@fontsource-variable/roboto-mono';
+
+/*
+ * O Figma tem um único tema escuro, aplicado direto nos tokens. A variante `dark:`
+ * dos componentes shadcn fica presa a uma classe .dark que nunca é usada, para não
+ * reagir ao prefers-color-scheme do sistema.
+ */
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: 'Roboto Mono Variable', ui-monospace, monospace;
+  --font-heading: var(--font-sans);
+  --font-mono: var(--font-sans);
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+
+  /* Tokens próprios do layout Kurio */
+  --color-band: var(--band);
+  --color-placeholder: var(--placeholder);
+  --color-cream: var(--cream);
+  --color-primary-glow: var(--primary-glow);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  --container-site: 75rem;
+}
+
+:root {
+  color-scheme: dark;
+
+  /* Valores amostrados das capturas do Figma */
+  --background: #140d0a;
+  --foreground: #f5f1eb;
+  --card: #241612;
+  --card-foreground: #f5f1eb;
+  --popover: #241612;
+  --popover-foreground: #f5f1eb;
+  --primary: #d28a4c;
+  --primary-foreground: #140d0a;
+  --primary-glow: #e89b55;
+  --secondary: #38220f;
+  --secondary-foreground: #f5f1eb;
+  --muted: #241612;
+  --muted-foreground: #cfb28c;
+  --accent: #2e1b13;
+  --accent-foreground: #f5f1eb;
+  --destructive: #f07a62;
+  --border: #3f2319;
+  --input: #3f2319;
+  --ring: #d28a4c;
+  --band: #38220f;
+  --placeholder: #b39463;
+  --cream: #fdf2da;
+  --radius: 0.375rem;
+  --gutter: 1.5rem;
+}
+
+@media (width >= 48rem) {
+  :root {
+    --gutter: 2rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-variant-numeric: slashed-zero;
+  }
+  ::placeholder {
+    color: var(--placeholder);
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+/* Largura útil de 1200px do Figma, com respiro lateral em telas menores. */
+@utility site-container {
+  margin-inline: auto;
+  width: 100%;
+  max-width: calc(var(--container-site) + 2 * var(--gutter));
+  padding-inline: var(--gutter);
+}
+
+/*
+ * Seções abaixo da dobra: o navegador pula layout e pintura até que se aproximem
+ * da tela. O tamanho intrínseco reserva espaço e evita saltos na rolagem.
+ */
+@utility below-fold {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 40rem;
+}
+
+@utility shimmer {
+  position: relative;
+  overflow: hidden;
+  background-color: #36221a;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent, rgb(245 241 235 / 0.09), transparent);
+    animation: shimmer 1.6s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &::after {
+      animation: none;
+    }
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
