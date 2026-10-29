@@ -8,7 +8,7 @@ Marketplace de NFTs em React e TypeScript, com descoberta, compra e conta do col
 
 ## Acesso rápido
 
-- Aplicação publicada: _a preencher após a publicação._
+- Aplicação publicada: https://kurio-pedrobalen.vercel.app
 - Entre com `ana@kurio.app` e a senha `Kurio2026!` (conta com carteiras e favoritos). Para testar a troca de usuário, use `bruno@kurio.app` com a mesma senha.
 - Os dados ficam no navegador de cada visitante. `?mock-reset` em qualquer URL restaura o estado inicial, e `?cenario=<id>` ativa os [cenários de falha](#cenários-e-reset-dos-mocks).
 
@@ -175,9 +175,9 @@ O Lighthouse usa `CHROME_PATH`, se definido, ou o `chrome-headless-shell` instal
 
 ## Deploy
 
-O projeto está pronto para o Vercel: build `npm run build`, saída `dist/`. O [vercel.json](vercel.json) reescreve para `index.html` toda rota sem extensão, então acesso direto e refresh de qualquer tela funcionam. Os mocks e o tempo real rodam no navegador, no próprio build publicado.
+Publicado no Vercel: build `npm run build`, saída `dist/`. O [vercel.json](vercel.json) reescreve para `index.html` toda rota sem extensão, então acesso direto e refresh de qualquer tela funcionam. Os mocks e o tempo real rodam no navegador, no próprio build publicado.
 
-URL pública: _a preencher após a publicação._
+URL pública: https://kurio-pedrobalen.vercel.app
 
 ## Estrutura
 

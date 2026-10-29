@@ -54,4 +54,21 @@ test.describe('detalhe do NFT', () => {
     await page.getByRole('button', { name: 'Próximas' }).click()
     await expect(page.getByText('Página 2 de 4')).toBeVisible()
   })
+
+  test('carrossel medido sem largura não derruba a página', async ({ page }) => {
+    // Aba em segundo plano ou layout ainda sem tamanho: a lista chega a ter largura 0.
+    await page.goto('/nft/emerald-ape-042')
+    const track = page.locator('ul.snap-mandatory').first()
+    await track.scrollIntoViewIfNeeded()
+    await expect(track.getByRole('listitem').first()).toBeVisible()
+    await track.evaluate((element) => {
+      element.style.width = '0px'
+    })
+    await page.waitForTimeout(500)
+    await expect(page.getByText('Something went wrong')).toHaveCount(0)
+    await track.evaluate((element) => {
+      element.style.width = ''
+    })
+    await expect(page.getByRole('group', { name: 'Páginas do carrossel' }).first()).toBeVisible()
+  })
 })

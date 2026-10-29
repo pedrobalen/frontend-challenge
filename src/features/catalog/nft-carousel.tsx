@@ -22,6 +22,9 @@ export function NftCarousel({
   const [pageCount, setPageCount] = useState(1)
 
   function measure(track: HTMLUListElement) {
+    // Sem largura (aba em segundo plano, layout ainda não calculado) a divisão daria
+    // Infinity; o ResizeObserver mede de novo quando a lista ganhar tamanho.
+    if (track.clientWidth === 0) return
     const pages = Math.max(1, Math.round(track.scrollWidth / track.clientWidth))
     setPageCount(pages)
     setPage(Math.min(pages - 1, Math.round(track.scrollLeft / track.clientWidth)))
