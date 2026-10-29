@@ -10,6 +10,21 @@ import './index.css'
 
 const mocksEnabled = import.meta.env.VITE_API_MOCKING !== 'disabled'
 
+// Deploy novo com a aba aberta: os chunks do build antigo somem e o primeiro import sob
+// demanda (diálogo de login, rotas) falha. Recarrega uma vez para buscar o build atual;
+// a marca no sessionStorage evita laço se o arquivo estiver quebrado de verdade.
+const STALE_RELOAD_KEY = 'kurio:stale-chunk-reload'
+window.addEventListener('vite:preloadError', (event) => {
+  try {
+    if (Date.now() - Number(sessionStorage.getItem(STALE_RELOAD_KEY) ?? 0) < 10_000) return
+    sessionStorage.setItem(STALE_RELOAD_KEY, String(Date.now()))
+  } catch {
+    return
+  }
+  event.preventDefault()
+  window.location.reload()
+})
+
 // Cenário e reset vêm da URL e precisam ser lidos antes do router.
 if (mocksEnabled) {
   applyScenarioFromUrl()

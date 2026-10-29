@@ -20,6 +20,7 @@ Handlers (src/mocks/handlers) ── estado único (src/mocks/db.ts, localStorag
 - **Contratos tipados.** `src/api/contracts/*.ts` define os tipos usados pelo cliente e pelos handlers MSW, então uma mudança de contrato quebra a compilação dos dois lados.
 - **ETH como string decimal.** Preços, subtotais, descontos, taxas e totais trafegam como `"1.19"`. As contas usam `src/lib/eth.ts` (BigInt em wei, 18 casas), tanto no cliente quanto nos handlers. Quantidades são inteiras. Não há `number` em valores monetários.
 - **Inicialização.** A interface aparece antes do MSW terminar de iniciar (cabeçalho, textos e skeletons). A primeira requisição REST e a conexão Socket.IO esperam o sinal `networkReady` (`src/app/network-ready.ts`). Esse sinal é só de sequência de inicialização e não muda nenhuma resposta. Sem mocks, ele é dado imediatamente.
+- **Deploy novo com a aba aberta.** Os arquivos JS têm hash no nome e os do build anterior deixam de existir. Se um carregamento sob demanda (diálogo de conta, rota) falha, o evento `vite:preloadError` recarrega a página uma vez para buscar o build atual (`src/main.tsx`), com uma trava de 10 s no `sessionStorage` contra laço.
 
 ## Rotas
 

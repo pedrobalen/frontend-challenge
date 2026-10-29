@@ -142,4 +142,18 @@ test.describe('conta e sessão', () => {
     await expect(dialog(page)).toHaveCount(0)
     await expect(page.getByRole('heading', { level: 1, name: 'Emerald Ape #042' })).toBeVisible()
   })
+
+  test('aba aberta antes de um deploy novo recarrega e abre o login', async ({ page }) => {
+    // O chunk do diálogo é do build antigo e responde 404 na primeira vez, como após um deploy.
+    // O diálogo abre pela URL na carga: depois que o MSW ativa, os pedidos passam pelo service
+    // worker dele, e o page.route não os enxerga.
+    let requests = 0
+    await page.route(/\/assets\/auth-dialog-[^/]+\.js$/, (route) =>
+      requests++ === 0 ? route.fulfill({ status: 404, body: 'Not Found' }) : route.continue(),
+    )
+    await page.goto('/?auth=entrar')
+    await expect(dialog(page)).toBeVisible()
+    await expect(page.getByText('Something went wrong')).toHaveCount(0)
+    expect(requests).toBe(2)
+  })
 })
